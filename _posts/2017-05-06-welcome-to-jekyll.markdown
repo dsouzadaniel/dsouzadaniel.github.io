@@ -1,25 +1,27 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Jekyll Activated"
 date:   2017-05-06 17:31:59 -0400
-categories: jekyll update
+categories: jekyll
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+If everything works fine, then this should be my first post. I have begun my github-pages journey in Jekyll (courtesy: Andrej Karpathy & <i>[his amazing blog](https://karpathy.github.io)</i> )
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+I am getting the hang of using Jekyll. Unfortunately for a really long time I had wordpress powering(<i>if you can say that</i>) all my projects. Jekyll although a tougher beast to initially set up, seems familiar. Almost too familiar.
 
-Jekyll also offers powerful support for code snippets:
+Here are some of the reasons why I've moved to Jekyll :
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+1. I get to work on my `markdown` skills. If you don't know what that is, <i>[read this](https://blog.ghost.org/markdown/)</i>.
+2. Get a little uncomfortable( Wordpress got me good.)
+3. It's lighter.
+4. Start that ML/Deep NLP blog I always wanted to get going(<i>& make it pretty.</i>)
+5. Sounds waay cooler than Wordpress.
+6. Why the hell not?
+
+Also, it's pretty convenient to whip up pretty looking code for the web.
+
+{% highlight python %}
+from sklearn import linear_model
 {% endhighlight %}
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+At this point, it should be pretty obvious that I am simply populating this post to see how far I remember my markdown tags.
+<i>See you in the next one!</i>
