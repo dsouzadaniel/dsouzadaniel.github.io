@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  "An Intuitive Explanation to Accuracy, Recall and Precision"
+title:  "An Intuitive Explanation to Precision, Recall and Accuracy"
 date:   2017-10-15 21:00:59 -0400
 categories: jekyll
 ---
@@ -14,7 +14,7 @@ I responded “My accuracy was 87%”, trying to slyly escape with a broad grin.
 
 ![alt text][precision_recall_darts]
 
-Needless to say, I did'nt get the job. I never realized what the big deal was, back then. I do now. Over the course of my summer internship as an NLP Research Intern at ProQuest LLC, I was forced to understand the business aspect of the project I was working on, and not simply apply python libraries blindly to some data. Today, I’d like to share some of that intuition with you.
+Needless to say, I did'nt get the job. I never realized what the big deal was back then. I do now. Over the course of my summer internship as an <b>NLP Research Intern at ProQuest LLC</b> , I was forced to understand the business aspect of the project I was working on, and not simply apply python libraries blindly to some data. Today, I’d like to share some of that intuition with you.
 
 
 So here’s the scenario :
@@ -44,10 +44,11 @@ Wouldn’t it be great if we had some other measure to find out whether we(at th
 
 Enter Recall and Precision.
 
-For now, think of them as
+For now, think of them as :
 
-<b><u>Recall</u></b> : <i>How many of the urgent documents in the test pool, were we able to identify correctly as urgent.</i>
-<b><u>Precision</u></b> : <i>How many of our predicted urgent documents are actually urgent. </i>
+* <b><u>Recall</u></b> : <i>How many of the urgent documents in the test pool, were we able to identify correctly as urgent.</i>
+
+* <b><u>Precision</u></b> : <i>How many of our predicted urgent documents are actually urgent. </i>
 
 As you may have guessed from the keyword “urgent”, we cannot misclassify an urgent document. We could probably do with misclassifying a couple non-urgent documents as urgent. But absolutely no misses on urgent documents. Hence, it should be obvious that we need to optimize for Recall.
 
@@ -80,18 +81,18 @@ Finally, we’re left with this big question. <i>Do we ever care about Accuracy?
 
 Sure we do. But I’ll let you figure that one out on your own 😃
 
-PS: There’s all that jazz on the Precision-Recall curve and how they depend on each other and the F-score and much more. We’ll discuss them soon enough.
+<b>PS</b>: There’s all that jazz on the Precision-Recall curve and how they depend on each other and the F-score and much more. We’ll discuss them soon enough.
 
 <i>See you in the next one!</i>
 
 
 
-[precision_recall_darts]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pexels-photo-226575.jpeg "Logo Title Text 2"
+[precision_recall_darts]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pexels-photo-226575.jpeg "Define bulls eye"
 
-[conf_mat]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/1.png "Logo Title Text 2"
+[conf_mat]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/1.png "Courtesy : Matlab"
 
-[predrec_math]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pr1.png "Logo Title Text 2"
+[predrec_math]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pr1.png "Courtesy : Wikipedia"
 
-[predrec_doc_1]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/p1.png "Logo Title Text 2"
+[predrec_doc_1]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/p1.png "Courtesy : Wikipedia"
 
-[predrec_doc_2]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/r1.png "Logo Title Text 2"
+[predrec_doc_2]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/r1.png "Courtesy : Wikipedia"
