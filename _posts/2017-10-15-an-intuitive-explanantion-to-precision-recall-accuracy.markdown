@@ -15,6 +15,7 @@ I responded “My accuracy was 87%”, trying to slyly escape with a broad grin.
 
 Needless to say, I did'nt get the job. I never realized what the big deal was, back then. I do now. Over the course of my summer internship as an NLP Research Intern at ProQuest LLC, I was forced to understand the business aspect of the project I was working on, and not simply apply python libraries blindly to some data. Today, I’d like to share some of that intuition with you.
 
+
 So here’s the scenario :
 
 You need to build a document classifier that splits documents into two buckets : <b>urgent</b> and <b>non-urgent</b>. Right now, there’s a team of qualified humans that read through each and every document and decide its urgency. Let’s assume that they get it right 100% of the time. Now if it’s a couple of documents every other day, you’re good. Scale that up to a couple 1,000 documents a week, and you need a solution. They call you in. You know that your model needs to do as well as the current team of super-humans;  only faster. If not replace, you atleast need to optimize the current process.
@@ -28,7 +29,9 @@ Suppose you have 10 urgent documents and 90 non-urgent documents in your test do
 
 Your model has an accuracy of 90% on this dataset. What does that tell you?
 
+
 <b>"ABSOLUTELY NOTHING."</b>
+
 
 <u>Case 1:</u> You(<i> your model</i> ) got 80 of the non-urgent correct and labelled the remaining documents urgent. So you pass on 20 supposedly Urgent documents to the team( only half of which are actually urgent). Great! You didn’t miss any urgent document.
 
@@ -69,7 +72,7 @@ You should now be able to relate this to our understanding of :
 
 If it didn’t hit you yet, spend some time on the confusion matrix. It’ll all make sense.
 
-The lesson to be learnt here is, when using machine learning to solve problems for your business, be clear on <b><i>what performance metric defines success for you</b></i>. Is it Recall? Precision?
+The lesson to be learnt here is, when using machine learning to solve problems for your business, be clear on <i><b>what performance metric defines success for you</i></b> . Is it Recall? Precision?
 Or a decent mix of both?
 
 Finally, we’re left with this big question. <i>Do we ever care about Accuracy?</i>
