@@ -83,12 +83,12 @@ PS: There’s all that jazz on the Precision-Recall curve and how they depend on
 
 <i>See you in the next one!</i>
 
-[precision_recall_darts]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/blob/master/images/pexels-photo-226575.jpeg "Logo Title Text 2"
+[precision_recall_darts]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pexels-photo-226575.jpeg "Logo Title Text 2"
 
-[conf_mat]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[conf_mat]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/1.png "Logo Title Text 2"
 
-[predrec_math]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/blob/master/images/pr1.png "Logo Title Text 2"
+[predrec_math]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pr1.png "Logo Title Text 2"
 
-[predrec_doc_1]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/blob/master/images/p1.png "Logo Title Text 2"
+[predrec_doc_1]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/p1.png "Logo Title Text 2"
 
-[predrec_doc_2]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/blob/master/images/r1.png "Logo Title Text 2"
+[predrec_doc_2]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/r1.png "Logo Title Text 2"
