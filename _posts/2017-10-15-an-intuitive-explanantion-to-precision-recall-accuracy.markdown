@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "An Intuitive Explanation to Accuracy, Recall and Precision"
 date:   2017-10-15 21:00:59 -0400
 categories: jekyll
@@ -83,6 +84,8 @@ PS: There’s all that jazz on the Precision-Recall curve and how they depend on
 
 <i>See you in the next one!</i>
 
+
+ ** Liked what you read? Do Leave me a comment down below! :) **
 [precision_recall_darts]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pexels-photo-226575.jpeg "Logo Title Text 2"
 
 [conf_mat]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/1.png "Logo Title Text 2"

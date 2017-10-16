@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Jekyll Activated"
 date:   2017-05-06 17:31:59 -0400
 categories: jekyll
