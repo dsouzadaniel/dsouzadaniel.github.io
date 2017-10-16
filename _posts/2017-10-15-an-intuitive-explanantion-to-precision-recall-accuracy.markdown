@@ -84,7 +84,7 @@ PS: There’s all that jazz on the Precision-Recall curve and how they depend on
 
 <i>See you in the next one!</i>
 
-###### Liked what you read? Do Leave me a comment down below! 😃
+
 
 [precision_recall_darts]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pexels-photo-226575.jpeg "Logo Title Text 2"
 
