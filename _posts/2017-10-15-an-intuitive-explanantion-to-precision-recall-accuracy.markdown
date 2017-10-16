@@ -72,7 +72,7 @@ You should now be able to relate this to our understanding of :
 
 If it didn’t hit you yet, spend some time on the confusion matrix. It’ll all make sense.
 
-The lesson to be learnt here is, when using machine learning to solve problems for your business, be clear on <i><b>what performance metric defines success for you</i></b> . Is it Recall? Precision?
+The lesson to be learnt here is, when using machine learning to solve problems for your business, be clear on <i><b>what performance metric defines success for you</b></i> . Is it Recall? Precision?
 Or a decent mix of both?
 
 Finally, we’re left with this big question. <i>Do we ever care about Accuracy?</i>
