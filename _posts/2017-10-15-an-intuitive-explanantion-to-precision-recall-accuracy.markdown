@@ -85,8 +85,6 @@ Sure we do. But I’ll let you figure that one out on your own 😃
 
 <i>See you in the next one!</i> 😃
 
-
-
 [precision_recall_darts]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/pexels-photo-226575.jpeg "Define bulls eye"
 
 [conf_mat]: https://github.com/dsouzadaniel/dsouzadaniel.github.io/raw/master/images/1.png "Courtesy : Matlab"
