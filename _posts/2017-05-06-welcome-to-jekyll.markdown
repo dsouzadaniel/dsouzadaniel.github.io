@@ -3,7 +3,7 @@ layout: post
 comments: true
 title:  "Jekyll Activated"
 date:   2017-05-06 17:31:59 -0400
-categories: jekyll
+categories: randomness
 ---
 If everything works fine, then this should be my first post. I have begun my github-pages journey in Jekyll (courtesy: Andrej Karpathy & <i>[his amazing blog](https://karpathy.github.io)</i> )
 
