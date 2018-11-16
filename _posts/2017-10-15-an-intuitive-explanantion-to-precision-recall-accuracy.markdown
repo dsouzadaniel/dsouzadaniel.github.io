@@ -3,7 +3,7 @@ layout: post
 comments: true
 title:  "An Intuitive Explanation to Precision, Recall and Accuracy"
 date:   2017-10-15 21:00:59 -0400
-categories: jekyll
+categories: machine-learning
 ---
 
 Earlier this year, at an interview in New York I was asked about the recall and precision of one of my Machine Learning Projects. For a couple of minutes following that, the interviewer sat back and enjoyed the perplexed look on my face. I mean it’s not like I've never heard these terms before. I knew it involved some equations with True Positives. <i>Or was it False Negatives?</i>
