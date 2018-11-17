@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Daniel D'souza Blog
+title: Daniel D'souza's Tech Blog
 #email: your-email@domain.com
 description: Simple can be harder than Complex.
 #baseurl: "" # the subpath of your site, e.g. /blog
@@ -30,9 +30,3 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-
-# Disqus Comments
-disqus:
-    # Leave shortname blank to disable comments site-wide.
-    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: dsouzadaniel-github-io
