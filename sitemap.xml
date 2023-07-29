@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dsouzadaniel.github.io/about.html</loc>
-    <lastmod>2023-07-29T19:48:34.430Z</lastmod>
+    <lastmod>2023-07-29T23:12:31.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dsouzadaniel.github.io/posts/first-post/index.html</loc>
+    <lastmod>2023-07-29T23:12:30.471Z</lastmod>
   </url>
   <url>
     <loc>https://dsouzadaniel.github.io/index.html</loc>
-    <lastmod>2023-07-29T19:48:34.149Z</lastmod>
+    <lastmod>2023-07-29T23:12:30.771Z</lastmod>
   </url>
 </urlset>
