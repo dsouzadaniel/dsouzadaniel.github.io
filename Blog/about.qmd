@@ -1,0 +1,25 @@
+---
+title: "About"
+image: raw/danieldsouza_headshot.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/mrdanieldsouza
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/daniel-dsouza/
+    - icon: github
+      text: Github
+      href: https://github.com/dsouzadaniel
+
+---
+
+Hey there! I'm Daniel D'souza.
+
+I currently work as a Sr.Data Scientist at ProQuest LLC.
+
+I am interested in research that operates at the intersection of Interpretability and  Machine Learning.
+
+I am an active member of ML Collective(https://mlcollective.org) and Masakhane

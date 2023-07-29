@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4fcf001-2a11-4028-9a7f-5051cdeee741" name="Changes" comment="" />
+    <list default="true" id="b4fcf001-2a11-4028-9a7f-5051cdeee741" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Blog/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/_quarto.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/about.qmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/index.qmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/posts/_metadata.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/posts/post-with-code/image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/posts/post-with-code/index.qmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/posts/welcome/index.qmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/posts/welcome/thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/profile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Blog/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +37,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
     "git-widget-placeholder": "init__blog",
+    "last_opened_file_path": "/Users/danieldsouza/Code/dsouzadaniel.github.io/Blog/raw",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -31,6 +45,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Blog/raw" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -39,7 +58,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1690416346816</updated>
-      <workItem from="1690416347877" duration="2984000" />
+      <workItem from="1690416347877" duration="3506000" />
+      <workItem from="1690504639812" duration="5234000" />
     </task>
     <servers />
   </component>
