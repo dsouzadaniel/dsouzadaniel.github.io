@@ -18,8 +18,8 @@ about:
 
 Hey there! I'm Daniel D'souza.
 
-I currently work as a Sr.Data Scientist at ProQuest LLC.
+I currently work as a Sr.Data Scientist at [ProQuest LLC](https://www.proquest.com/){target="_blank"}.
 
 I am interested in research that operates at the intersection of Interpretability and  Machine Learning.
 
-I am an active member of ML Collective(https://mlcollective.org) and Masakhane
+I am an active member of [Cohere For AI](https://cohere.for.ai/){target="_blank"},  [ML Collective](https://mlcollective.org){target="_blank"} and [Masakhane](https://www.masakhane.io/){target="_blank"}
