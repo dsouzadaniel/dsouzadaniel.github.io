@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel D’souza">
+<meta name="dcterms.date" content="2023-08-12">
+
+<title>Daniel D’souza - Instruction Tuning : 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Daniel D’souza</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsouzadaniel/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/mrdanieldsouza" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Instruction Tuning : 101</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">transformers</div>
+                <div class="quarto-category">instruction-tuning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Daniel D’souza </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 12, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>While I try my best to summarize and connect the papers below, this post won’t come close to the joy of reading and understanding these papers yourself. I highly recommend it! 🙂</p>
+<p><strong>Note</strong>: It is entirely possible that I (<em>unintentionally</em>) skip over important papers or get something wrong. Please help me in keeping this resource as accurate as possible, by reaching out to me via <a href="https://twitter.com/mrdanieldsouza" target="_blank">Twitter</a> and I will update this appropriately. Thanks and enjoy the journey! 😀</p>
+<p><img src="raw/instructions_bg.jpg" class="img-fluid" style="width:80.0%"></p>
+<section id="instruction-tuning" class="level1">
+<h1>Instruction Tuning</h1>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>Instruction Tuning can simply be defined as the task of teaching a model to follow instructions in order to enable it to perform unseen tasks at test time.</p>
+<blockquote class="blockquote">
+<p>Instruction Tuning is a simple method that combines appealing aspects of both the pretrain–finetune and prompting paradigms by using supervision via finetuning to improve language model’s responses to inference-time text interactions</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw/instruction_tuning_framework.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Definition/Image Credit: <a href="https://arxiv.org/abs/2109.01652" target="_blank">Wei et al</a></figcaption>
+</figure>
+</div>
+<p>Let’s understand a couple of concepts before we get to the good stuff!</p>
+</section>
+<section id="n-shot-setting" class="level3">
+<h3 class="anchored" data-anchor-id="n-shot-setting">n-Shot Setting</h3>
+<p>As opposed to fine-tuning which requires parameter updates to the model, n-Shot techniques don’t involve gradient updates. From <a href="https://arxiv.org/abs/2005.14165" target="_blank">Brown et al</a>, the three broad categories in <em>decreasing</em> order of difficulty are :</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Setting</th>
+<th style="text-align: center;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Zero-Shot</strong>(0S)</td>
+<td style="text-align: center;"><img src="raw/zero_shot.png" class="img-fluid" style="width:100.0%"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>One-Shot</strong>(1S)</td>
+<td style="text-align: center;"><img src="raw/one_shot.png" class="img-fluid" style="width:100.0%"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Few-Shot</strong> (FS)</td>
+<td style="text-align: center;"><img src="raw/few_shot.png" class="img-fluid" style="width:100.0%"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="generalization" class="level3">
+<h3 class="anchored" data-anchor-id="generalization">Generalization</h3>
+<p>Before we go down the rabbit hole, <a href="https://arxiv.org/abs/2104.08773" target="_blank">Mishra et al</a> provide a useful definition to set the tone for what multi-task generalization means :</p>
+<p><strong><em>Instance-Level Generalization</em></strong> is the setting most commonly seen where all the datapoints are related to a task <span class="math inline">\(T\)</span> and during training, the model is fed <span class="math inline">\(X_{train}\)</span> and expected to output <span class="math inline">\(Y_{train}\)</span></p>
+<p><strong><em>Task-Level Generalization</em></strong> is the setting where all your training datapoints are taken from a set of tasks referred to as <span class="math inline">\(T_{seen}\)</span> and during training, the model is fed (<span class="math inline">\(I_t , X_{train}\)</span>) and expected to output <span class="math inline">\(Y_{train}\)</span>. The extra input <span class="math inline">\(I_{t}\)</span> is to inform the model about the task that the datapoint <span class="math inline">\((X_{train} , Y_{train})\)</span> is sampled from.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw/train_eval_table.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Image Credit: <a href="https://arxiv.org/abs/2104.08773" target="_blank">Mishra et al</a></figcaption>
+</figure>
+</div>
+<p>Is is crucial to understand what “separation” between the Training and Evaluation data means. In the former case, we’re trying to measure how well the model generalizes to an unseen instance/datapoint, hence the instances i.e datapoints can’t overlap. In the latter setting, since we’re measuring how well the model will generalize to an unseen task, the tasks can’t overlap. So, the training tasks <span class="math inline">\((T_{seen})\)</span> and evaluation tasks <span class="math inline">\((T_{unseen})\)</span> are disjoint sets.</p>
+</section>
+</section>
+<section id="start-from-gpt-3" class="level1">
+<h1>Start from GPT-3</h1>
+<p>A <em>hypothesis</em> from the GPT-2(<a href="https://openai.com/research/better-language-models" target="_blank">Radford et al</a>) paper about why models at scale are able to generalize to new tasks, credits the <em>implicit</em> process of multi-task learning during the model training episode. This is further enforced in the GPT-3(<a href="https://arxiv.org/abs/2005.14165" target="_blank">Brown et al</a>) paper by even better generalization to unseen tasks. A lot of the work below used this 175B monolith as a baseline to further investigate this phenomena.</p>
+<p>Let’s look at a key result from the GPT-3 paper to set the tone!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw/gpt3_zeroshot.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Image Credit: <a href="https://arxiv.org/abs/2005.14165" target="_blank">Brown et al</a></figcaption>
+</figure>
+</div>
+<p>This essentially said that on an aggregated performance of 42-accuracy based tasks, they measured a nearly 20% bump(<span style="color: blue;">blue line</span>) on zero-shot tasks by going from a 0.1B model to 175B model.</p>
+<p>Unsurprisingly, a lot of questions arose after this:</p>
+<ul>
+<li><mark>Does this behavior only emerge at scale ?</mark></li>
+<li><mark>What if we make this <em>implicit</em> multi-task learning <strong><em>explicit</em></strong>?</mark></li>
+<li><mark>What if we trained on “detailed” instructions ?</mark></li>
+<li><mark>Do instructions ever hurt performance ?</mark></li>
+</ul>
+<p>Now, let’s study three concurrent works that I believe provide a good foundation in the field.</p>
+</section>
+<section id="research-papers" class="level1">
+<h1>Research Papers</h1>
+<section id="flan" class="level2">
+<h2 class="anchored" data-anchor-id="flan">FLAN</h2>
+<p><u>Model</u> : They train a <strong>137B</strong>(close in scale to GPT-3, but still smaller) Parameter model that is a LaMDA-PT decoder-style model that was then “instruction-tuned”.</p>
+<p><u>Dataset</u> : They transform 62 existing text datasets using unique prompt templates, essentially reusing datasets but with “instructions” to indicate the desired operation.</p>
+<p><u>Results</u> : It outperformed the much larger 175B GPT-3 on all zero-shot tasks and surprisingly it even beat the 175B GPT-3 few-shot on a couple tasks while still remaining zero-shot!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw/flan_perf.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Image Credit: <a href="https://arxiv.org/abs/2109.01652" target="_blank">Wei et al</a></figcaption>
+</figure>
+</div>
+<p>The GPT-3 paper showed that zero and few-shot capabilities of language models substantially improve for larger models. Let’s see how that carries out for Instruction Tuning:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw/flan_scale.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Image Credit: <a href="https://arxiv.org/abs/2109.01652" target="_blank">Wei et al</a></figcaption>
+</figure>
+</div>
+<p>We see that even up to 8B, the “instruction-tuned” models performs worse on the held-out tasks than the untuned model. The FLAN paper authors makes a convincing argument for this : With lower scale, model parameters are used to learn the tasks instead of learning to follow instructions which causes the model to perform worse on the unseen tasks. With increased scale, the model has capacity to learn how to follow instructions allowing them to generalize (and hence the increased performance).</p>
+<p>💡<strong><em>Was scale the only factor ?</em></strong> Now although there an argument to be made for the magic of scale, as we’ll see later it is possible to have useful instruction tuned models at scales far lower than 8B, so we’ll revisit this hypothesis toward the end!</p>
+</section>
+<section id="t0" class="level2">
+<h2 class="anchored" data-anchor-id="t0">T0</h2>
+<p><u>Model</u> : They train several variants of an <strong>11B</strong> (~16X smaller than GPT-3) Parameter LM-adapted T5 encoder-decoder model i.e T0, T0+, T0++. These only differ in the number of datasets that were used to fine-tune these models, each building on the other.</p>
+<p><u>Dataset</u> : They created and open-sourced an interface called <a href="https://github.com/bigscience-workshop/promptsource" target="_blank">PromptSource</a> that allows you to create templated instruction-style datasets. They also released <a href="https://huggingface.co/datasets/bigscience/P3" target="_blank">P3</a> : <strong>P</strong>ublic <strong>P</strong>ool of <strong>P</strong>rompts that contain &gt;2k prompts from several <em>English</em> datasets.</p>
+<p><u>Results</u> : They showed improvement over GPT-3(175B) on 9 of out the 11 held-out <span class="math inline">\((T_{unseen})\)</span> tasks at 16x reduction in model-size. This showed that explicit multi-task training does improve task generalization.</p>
+<p>They also train a smaller variant(T0-3B) to answer the scale question and show that even at a lower scale, zero-shot task generalization could be achieved with an explicit multi-task learning objective.</p>
+<p>💡<strong><em>Wondering if anyone moved beyond English and built multi-lingual prompt datasets ?</em></strong> <a href="https://huggingface.co/datasets/bigscience/xP3" target="_blank">xP3</a>(13 tasks in 46 languages) &amp; <a href="https://huggingface.co/datasets/Muennighoff/xP3x" target="_blank">xP3x</a>(17 tasks in 277 languages) did that. More recently, there is a massive effort at <a href="https://sites.google.com/cohere.com/aya-en/home" target="_blank">C4AI with Project Aya</a> 🌱.</p>
+</section>
+<section id="natural-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="natural-instructions">Natural Instructions</h2>
+<p><u>Model</u> : They train a <strong>140M</strong>(tiny compared to GPT-3) Parameter model that is a BART-based encoder-decoder style model. This paper is interesting in that, their findings are more about what “instruction-tuning” could mean and less about how it necessarily <em>compares</em> to GPT-3.</p>
+<p><u>Dataset</u> : On the data side, they released the <a href="https://huggingface.co/datasets/Muennighoff/natural-instructions" target="_blank">Natural Instructions</a> Dataset. This dataset contains <em>61 distinct tasks</em> from <em>9 datasets</em> with <em>193k total instances</em>. They don’t simply <em>apply</em> a template on existing datasets like FLAN and PromptSource but crowdsource based on detailed instructions that were written by NLP researchers. They also break down existing datasets into sub-tasks where appropriate.</p>
+<p>The instructions in this dataset are elaborate! You have sections like : <em>Title</em>, <em>Definition</em>, <em>Emphasis &amp; Caution</em>, <em>Things to Avoid</em>, <em>Positive Examples</em>, <em>Negative Examples</em> and then the <em>Prompt</em>. Ex:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw/ni_format.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Image Credit: <a href="https://arxiv.org/abs/2104.08773" target="_blank">Mishra et al</a></figcaption>
+</figure>
+</div>
+<p><u>Results</u> : They show a 19% bump between BART models fine-tuned on <span class="math inline">\((T_{seen})\)</span> tasks when they added instructions. They show that this increases as a factor of the seen tasks <span class="math inline">\((T_{seen})\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw/ni_perf.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Image Credit: <a href="https://arxiv.org/abs/2104.08773" target="_blank">Mishra et al</a></figcaption>
+</figure>
+</div>
+<p>Out of all the three papers, they perform an excellent set of experiments to study the impact of instructions:</p>
+<ul>
+<li><strong><em>Dataset-related:</em></strong> If a dataset can be decomposed into several tasks and tasks from multiple datasets could be grouped into a category, how does performance vary when you :
+<ul>
+<li>Leave out an entire category of tasks</li>
+<li>Leave out an entire dataset(i.e it’s respective decomposed tasks)</li>
+<li>Leave out a single task(i.e one task from one dataset) This would be similar to <a href="https://www.cs.cmu.edu/~schneide/tut5/node42.html" target="_blank">LeaveOneOut</a> on the task-level</li>
+</ul></li>
+<li><strong><em>Instruction-related:</em></strong> If an instruction is made up of several parts like <em>Title</em>, <em>Definition</em>, <em>Positive/Negative Examples</em>, how does performance vary when you <strong>:</strong>
+<ul>
+<li>Remove one of the parts ?</li>
+<li>Remove several parts ?</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<p>Let’s try to answer the initial questions by finding common patterns from the papers above!</p>
+<ul>
+<li><p><mark><strong>Does this behavior only emerge at scale ?</strong></mark></p>
+<p><strong>FLAN</strong> showed that an “<em>instruction-tuned</em>” model with enough scale(137B) performs far better on unseen tasks than un-tuned models. But this broke down around the 8B model param limit. <strong>T0</strong> showed improvements at 11B( even went down to 3B). <strong>Natural Instructions</strong> showed promising results at just 140M. It is worthwhile noting that the latter two models were encoder-decoder style, while <strong>FLAN</strong> was just decoder-style. This, along with prompt diversity seems to be the accepted reason for models achieving “instruction-following” capabilities even at lower scales</p></li>
+<li><p><mark><strong>What if we make this</strong> <em>implicit</em> <strong>multi-task learning</strong> <em>explicit</em>?</mark></p>
+<p>All three papers provide evidence(albeit with different supporting hypothesis) that training a model explicitly enables them to perform better on unseen tasks. This is further observed with performance increasing as a result of an increase in <span class="math inline">\(T_{seen}\)</span> tasks. For ex: The <strong>T0</strong> paper where (keeping scale constant) the models trained on more “tasks”, generally performed better <span class="math inline">\(( T0\)</span>++ &gt; <span class="math inline">\(T0\)</span>+ &gt; <span class="math inline">\(T0 )\)</span>.</p></li>
+<li><p><mark><strong>What if we trained on “detailed” instructions ?</strong></mark></p>
+<p>Props to the <strong>Natural Instructions</strong> paper for providing a detailed ablated study of what portions of an instruction matter. They find that what the model considers <em>useful</em> depends heavily on the task we’re asking it to perform. For ex : <em>PositiveExamples</em> were useful for the Question Generation task, but sections like <em>ThingsToAvoid</em> were excellent for the Minimal Text Modification task. These results weakly imply that given the desired domain, fine-tuning on a domain-specific instruction style dataset could also give you very good results at smaller scales.</p></li>
+<li><p><mark><strong>Do instructions ever hurt performance ?</strong></mark></p>
+<p>For both <strong>T0</strong> and <strong>FLAN</strong>, they report poor performance on Winogrande and HellaSwag. But <strong>FLAN</strong> authors hypothesize for those tasks that instructions might be “redundant”. Both papers remove the instructions and see significant boosts in performance for these tasks. <strong>Natural Instructions</strong> do an extensive study of this to see which parts of the instruction actually help performance. This indicates that instructions aren’t always helpful or atleast aren’t helpful in the way we as humans define them.</p></li>
+</ul>
+</section>
+<section id="credit" class="level1">
+<h1>Credit</h1>
+<p>The above post is a humble distillation of the following incredible papers 🙂</p>
+<ul>
+<li><em>Finetuned Language Models Are Zero-Shot Learners</em>(<a href="https://arxiv.org/abs/2109.01652" target="_blank">Wei et al</a>)</li>
+<li><em>Multitask Prompted Training Enables Zero-Shot Task Generalization</em>(<a href="https://arxiv.org/abs/2110.08207" target="_blank">Sanh et al</a>)</li>
+<li><em>Language Models are Few-Shot Learners</em>(<a href="https://arxiv.org/abs/2005.14165" target="_blank">Brown et al</a>)</li>
+<li><em>Language Models are Unsupervised Multitask Learners</em> (<a href="https://openai.com/research/better-language-models" target="_blank">Radford et al</a>)</li>
+<li><em>Cross-Task Generalization via Natural Language Crowdsourcing Instructions</em> (<a href="https://arxiv.org/abs/2104.08773" target="_blank">Mishra et al</a>)</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
