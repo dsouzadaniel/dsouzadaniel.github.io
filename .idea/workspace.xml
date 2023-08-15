@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b4fcf001-2a11-4028-9a7f-5051cdeee741" name="Changes" comment="# init post">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/_quarto.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/_quarto.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/_site/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/_site/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/_site/listings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/_site/listings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/_site/search.json" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/_site/search.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/_site/site_libs/bootstrap/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/_site/site_libs/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/_site/sitemap.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/about.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/about.qmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/index.qmd" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/index.qmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/few_shot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/few_shot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/flan_perf.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/flan_perf.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/flan_scale.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/flan_scale.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/gpt3_zeroshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/gpt3_zeroshot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/instruction_tuning_framework.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/instruction_tuning_framework.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/instructions_bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/instructions_bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/ni_format.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/ni_format.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/ni_perf.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/ni_perf.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/one_shot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/one_shot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/train_eval_table.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/train_eval_table.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/posts/instruction-tuning-101/raw/zero_shot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/instruction-tuning-101/raw/zero_shot.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +55,7 @@
       <recent name="$PROJECT_DIR$/Blog/raw" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Blog" />
       <recent name="$PROJECT_DIR$/Blog/posts/instruction-tuning-101" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -65,7 +70,7 @@
       <updated>1690416346816</updated>
       <workItem from="1690416347877" duration="3506000" />
       <workItem from="1690504639812" duration="8587000" />
-      <workItem from="1690672577938" duration="22364000" />
+      <workItem from="1690672577938" duration="25729000" />
     </task>
     <task id="LOCAL-00001" summary="# init post">
       <created>1690591526233</created>
@@ -74,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690591526233</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="# init post">
+      <created>1691879416437</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691879416437</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
