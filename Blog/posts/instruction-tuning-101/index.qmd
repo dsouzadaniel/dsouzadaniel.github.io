@@ -52,7 +52,7 @@ Before we go down the rabbit hole, [Mishra et al](https://arxiv.org/abs/2104.087
 
 ![Image Credit: [Mishra et al](https://arxiv.org/abs/2104.08773){target="_blank"}](raw/train_eval_table.png){width=80%}
 
-Is is crucial to understand what "separation" between the Training and Evaluation data means. In the former case, we’re trying to measure how well the model generalizes to an unseen instance/datapoint, hence the instances i.e datapoints can’t overlap. In the latter setting, since we’re measuring how well the model will generalize to an unseen task, the tasks can’t overlap. So, the training tasks $(T_{seen})$ and evaluation tasks $(T_{unseen})$ are disjoint sets.
+It is crucial to understand what "separation" between the Training and Evaluation data means. In the former case, we’re trying to measure how well the model generalizes to an unseen instance/datapoint, hence the instances i.e datapoints can’t overlap. In the latter setting, since we’re measuring how well the model will generalize to an unseen task, the tasks can’t overlap. So, the training tasks $(T_{seen})$ and evaluation tasks $(T_{unseen})$ are disjoint sets.
 
 # Start from GPT-3
 
