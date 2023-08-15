@@ -7,29 +7,29 @@
     "text": "Hey there! I’m Daniel D’souza.\nI currently work as a Sr.Data Scientist at ProQuest LLC.\nI am interested in research that operates at the intersection of Interpretability and Machine Learning.\nI am an active member of Cohere For AI, ML Collective and Masakhane"
   },
   {
-    "objectID": "posts/instruction-tuning-101/index.html",
-    "href": "posts/instruction-tuning-101/index.html",
+    "objectID": "instruction-tuning-101/index.html",
+    "href": "instruction-tuning-101/index.html",
     "title": "Instruction Tuning : 101",
     "section": "",
     "text": "While I try my best to summarize and connect the papers below, this post won’t come close to the joy of reading and understanding these papers yourself. I highly recommend it! 🙂\nNote: It is entirely possible that I (unintentionally) skip over important papers or get something wrong. Please help me in keeping this resource as accurate as possible, by reaching out to me via Twitter and I will update this appropriately. Thanks and enjoy the journey! 😀"
   },
   {
-    "objectID": "posts/instruction-tuning-101/index.html#flan",
-    "href": "posts/instruction-tuning-101/index.html#flan",
+    "objectID": "instruction-tuning-101/index.html#flan",
+    "href": "instruction-tuning-101/index.html#flan",
     "title": "Instruction Tuning : 101",
     "section": "FLAN",
     "text": "FLAN\nModel : They train a 137B(close in scale to GPT-3, but still smaller) Parameter model that is a LaMDA-PT decoder-style model that was then “instruction-tuned”.\nDataset : They transform 62 existing text datasets using unique prompt templates, essentially reusing datasets but with “instructions” to indicate the desired operation.\nResults : It outperformed the much larger 175B GPT-3 on all zero-shot tasks and surprisingly it even beat the 175B GPT-3 few-shot on a couple tasks while still remaining zero-shot!\n\n\n\nImage Credit: Wei et al\n\n\nThe GPT-3 paper showed that zero and few-shot capabilities of language models substantially improve for larger models. Let’s see how that carries out for Instruction Tuning:\n\n\n\nImage Credit: Wei et al\n\n\nWe see that even up to 8B, the “instruction-tuned” models performs worse on the held-out tasks than the untuned model. The FLAN paper authors makes a convincing argument for this : With lower scale, model parameters are used to learn the tasks instead of learning to follow instructions which causes the model to perform worse on the unseen tasks. With increased scale, the model has capacity to learn how to follow instructions allowing them to generalize (and hence the increased performance).\n💡Was scale the only factor ? Now although there an argument to be made for the magic of scale, as we’ll see later it is possible to have useful instruction tuned models at scales far lower than 8B, so we’ll revisit this hypothesis toward the end!"
   },
   {
-    "objectID": "posts/instruction-tuning-101/index.html#t0",
-    "href": "posts/instruction-tuning-101/index.html#t0",
+    "objectID": "instruction-tuning-101/index.html#t0",
+    "href": "instruction-tuning-101/index.html#t0",
     "title": "Instruction Tuning : 101",
     "section": "T0",
     "text": "T0\nModel : They train several variants of an 11B (~16X smaller than GPT-3) Parameter LM-adapted T5 encoder-decoder model i.e T0, T0+, T0++. These only differ in the number of datasets that were used to fine-tune these models, each building on the other.\nDataset : They created and open-sourced an interface called PromptSource that allows you to create templated instruction-style datasets. They also released P3 : Public Pool of Prompts that contain &gt;2k prompts from several English datasets.\nResults : They showed improvement over GPT-3(175B) on 9 of out the 11 held-out \\((T_{unseen})\\) tasks at 16x reduction in model-size. This showed that explicit multi-task training does improve task generalization.\nThey also train a smaller variant(T0-3B) to answer the scale question and show that even at a lower scale, zero-shot task generalization could be achieved with an explicit multi-task learning objective.\n💡Wondering if anyone moved beyond English and built multi-lingual prompt datasets ? xP3(13 tasks in 46 languages) & xP3x(17 tasks in 277 languages) did that. More recently, there is a massive effort at C4AI with Project Aya 🌱."
   },
   {
-    "objectID": "posts/instruction-tuning-101/index.html#natural-instructions",
-    "href": "posts/instruction-tuning-101/index.html#natural-instructions",
+    "objectID": "instruction-tuning-101/index.html#natural-instructions",
+    "href": "instruction-tuning-101/index.html#natural-instructions",
     "title": "Instruction Tuning : 101",
     "section": "Natural Instructions",
     "text": "Natural Instructions\nModel : They train a 140M(tiny compared to GPT-3) Parameter model that is a BART-based encoder-decoder style model. This paper is interesting in that, their findings are more about what “instruction-tuning” could mean and less about how it necessarily compares to GPT-3.\nDataset : On the data side, they released the Natural Instructions Dataset. This dataset contains 61 distinct tasks from 9 datasets with 193k total instances. They don’t simply apply a template on existing datasets like FLAN and PromptSource but crowdsource based on detailed instructions that were written by NLP researchers. They also break down existing datasets into sub-tasks where appropriate.\nThe instructions in this dataset are elaborate! You have sections like : Title, Definition, Emphasis & Caution, Things to Avoid, Positive Examples, Negative Examples and then the Prompt. Ex:\n\n\n\nImage Credit: Mishra et al\n\n\nResults : They show a 19% bump between BART models fine-tuned on \\((T_{seen})\\) tasks when they added instructions. They show that this increases as a factor of the seen tasks \\((T_{seen})\\).\n\n\n\nImage Credit: Mishra et al\n\n\nOut of all the three papers, they perform an excellent set of experiments to study the impact of instructions:\n\nDataset-related: If a dataset can be decomposed into several tasks and tasks from multiple datasets could be grouped into a category, how does performance vary when you :\n\nLeave out an entire category of tasks\nLeave out an entire dataset(i.e it’s respective decomposed tasks)\nLeave out a single task(i.e one task from one dataset) This would be similar to LeaveOneOut on the task-level\n\nInstruction-related: If an instruction is made up of several parts like Title, Definition, Positive/Negative Examples, how does performance vary when you :\n\nRemove one of the parts ?\nRemove several parts ?"
@@ -39,6 +39,6 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Instruction Tuning : 101\n\n\n\n\n\n\n\n\n\nAug 12, 2023\n\n\n9 min\n\n\n\n\n\n\nNo matching items"
+    "text": "No matching items"
   }
 ]
